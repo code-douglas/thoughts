@@ -4,6 +4,7 @@ import connection from './db/connection.mjs';
 import Tought from './models/Tought.mjs';
 import User from './models/User.mjs';
 import sessionMiddleware from './middlewares/sessionMiddleware.mjs';
+import toughtsRoutes from './routes/toughtsRoutes.mjs';
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(express.json());
 
 // Aplicando middleware de sessão
 app.use(sessionMiddleware);
+app.use('/toughts', toughtsRoutes);
+app.use('/', toughtsRoutes);
 
 connection
   .sync()
