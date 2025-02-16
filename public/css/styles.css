@@ -39,6 +39,7 @@
   background-color: #f6982d;
   border-radius: 10px;
   padding: 10px 15px;
+  color: #fff;
 }
 
 .container {
@@ -110,6 +111,29 @@ form input[type='submit'],
     background: #f6982d;
     color: #fff;
   }
+}
+
+/* Messages */
+.message-error {
+  padding: 1em;
+  color: #ffffff;
+  background: #ff4646;
+  border: 1px solid #ff3314;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto 2em;
+  max-width: 20%;
+}
+
+.message-success {
+  padding: 1em;
+  color: #000000;
+  background: #57ffa8;
+  border: 1px solid rgb(0, 255, 34);
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto 2em;
+  max-width: 20%;
 }
 
 /* Footer */
