@@ -5,6 +5,7 @@ import Tought from './models/Tought.mjs';
 import User from './models/User.mjs';
 import sessionMiddleware from './middlewares/sessionMiddleware.mjs';
 import toughtsRoutes from './routes/toughtsRoutes.mjs';
+import authRoutes from './routes/authRoutes.mjs';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(sessionMiddleware);
 app.use('/toughts', toughtsRoutes);
 app.use('/', toughtsRoutes);
+app.use('/', authRoutes);
 
 connection
   .sync()
