@@ -1,6 +1,8 @@
 import express from 'express';
 import expbhs from 'express-handlebars';
 import connection from './db/connection.mjs';
+import Tought from './models/Tought.mjs';
+import User from './models/User.mjs';
 import sessionMiddleware from './middlewares/sessionMiddleware.mjs';
 
 const app = express();
