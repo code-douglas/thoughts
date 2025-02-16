@@ -1,12 +1,11 @@
-import User from '../models/User.mjs';
-
-export default class ToughtsController {
+class AuthController {
   static async login(req, res) {
     res.render('auth/login');
-
-
   }
+
   static async register(req, res) {
     res.render('auth/register');
   }
 }
+
+export default AuthController;
