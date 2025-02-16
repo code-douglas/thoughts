@@ -1,11 +1,13 @@
 import express from 'express';
 import expbhs from 'express-handlebars';
+
 import connection from './db/connection.mjs';
 import Tought from './models/Tought.mjs';
 import User from './models/User.mjs';
 import sessionMiddleware from './middlewares/sessionMiddleware.mjs';
 import toughtsRoutes from './routes/toughtsRoutes.mjs';
 import authRoutes from './routes/authRoutes.mjs';
+import ToughtsController from './controllers/ToughtsController.mjs';
 
 const app = express();
 
@@ -19,8 +21,8 @@ app.use(express.json());
 // Aplicando middleware de sessão
 app.use(sessionMiddleware);
 app.use('/toughts', toughtsRoutes);
-app.use('/', toughtsRoutes);
 app.use('/', authRoutes);
+app.get('/', ToughtsController.showToughts);
 
 connection
   .sync()
