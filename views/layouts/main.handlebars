@@ -5,9 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/styles.css">
+  {{!-- BS icons --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <title>Toughts</title>
 </head>
 <body>
-  {{{ body }}}
+  <nav id="navbar">
+    <a href="/" id="logo">
+      <img src="/img/toughts_logo.png" alt="logo toughts">
+    </a>
+    <ul>
+      <li><a href="/toughts">Pensamentos</a></li>
+      <li><a href="/login">Entrar</a></li>
+      <li><a href="/register">Registrar</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    {{{ body }}}
+  </div>
+  <footer>
+    <p><span>Toughts</span> &copy; 2025</p>
+  </footer>
 </body>
 </html>
