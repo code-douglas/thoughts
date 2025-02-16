@@ -16,11 +16,27 @@
     </a>
     <ul>
       <li><a href="/toughts">Pensamentos</a></li>
-      <li><a href="/login">Entrar</a></li>
-      <li><a href="/register">Registrar</a></li>
+
+      {{#if session.userId}}
+        <li><a href="/toughts/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Sair</a></li>
+      {{else}}
+        <li><a href="/login">Entrar</a></li>
+        <li><a href="/register">Registrar</a></li>
+      {{/if}}
     </ul>
   </nav>
   <div class="container">
+    {{#if messages.error}}
+      <div class="message-error">
+        {{messages.error}}
+      </div>
+    {{/if}}
+    {{#if messages.success}}
+      <div class="message-success">
+        {{messages.success}}
+      </div>
+    {{/if}}
     {{{ body }}}
   </div>
   <footer>
