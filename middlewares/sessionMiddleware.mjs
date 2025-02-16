@@ -27,7 +27,7 @@ const sessionMiddleware = [
   flash(),
 
   (req, res, next) => {
-    if (req.session.userid) {
+    if (req.session.userId) {
       res.locals.session = req.session;
     }
     next();
