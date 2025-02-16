@@ -1,18 +1,20 @@
-// Packages import
 import express from 'express';
 import expbhs from 'express-handlebars';
-import session from 'express-session';
-import sessionFileStore from 'session-file-store';
-import flash from 'express-flash';
-
-// DB connection import
 import connection from './db/connection.mjs';
+import sessionMiddleware from './middlewares/sessionMiddleware.mjs';
 
-// Initialize packages
 const app = express();
-const FileStore = sessionFileStore(session);
 
-// Initialize database
+app.engine('handlebars', expbhs.engine());
+app.set('view engine', 'handlebars');
+app.use(express.static('public'));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Aplicando middleware de sessão
+app.use(sessionMiddleware);
+
 connection
   .sync()
   .then(() => {
@@ -20,5 +22,5 @@ connection
     console.log('Servidor rodando: http://localhost:3003');
   })
   .catch(
-    (error) => console.log(`Falha na conexao: ${error}`)
+    (error) => console.log(`Falha na conexão: ${error}`)
   );
