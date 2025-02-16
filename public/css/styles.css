@@ -46,6 +46,73 @@
   padding: 2em;
 }
 
+/* Login and Register Page */
+.auth-container {
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container h2 {
+  margin-bottom: 1em;
+  color: #fff;
+  border-left: 4px solid #f6982d;
+  padding: .3em;
+  width: 100px;
+}
+
+.auth-container a {
+  color: #f6982d;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.form-control input, 
+.form-control textarea {
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #f6982d;
+
+  &::placeholder {
+    color: #fff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+form input[type='submit'], 
+.btn {
+  background: transparent;
+  color: #f6982d;
+  border: 2px solid #f6982d;
+  padding: .5em 1.2em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: .5s;
+
+  &:hover {
+    background: #f6982d;
+    color: #fff;
+  }
+}
+
+/* Footer */
 footer{
   height: 130px;
   display: flex;
