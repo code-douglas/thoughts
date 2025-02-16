@@ -5,6 +5,11 @@ class AuthController {
     res.render('auth/login');
   }
 
+  static async logout(req, res) {
+    req.session.destroy();
+    res.redirect('/login');
+  }
+
   static async register(req, res) {
     res.render('auth/register');
   }
