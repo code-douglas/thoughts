@@ -10,13 +10,14 @@ class AuthController {
     const { email, password } = req.body;
 
     const user = await User.findOne({ where: { email: email } });
-    const passwordMatch = bcrypt.compareSync(password, user.password);
 
     if(!user) {
       req.flash('error', 'Usuário não encontrado, tente novamente!');
       res.render('auth/login');
       return;
     }
+
+    const passwordMatch = bcrypt.compareSync(password, user.password);
 
     if(!passwordMatch) {
       req.flash('error', 'Credenciais invalidas, verifiquei e tente novamente.');
