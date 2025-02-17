@@ -8,4 +8,9 @@ export default class ToughtsController {
   static async dashboard(req, res) {
     res.render('toughts/dashboard');
   }
+
+  static createTought (req, res) {
+    res.render('toughts/create');
+  }
+
 }
