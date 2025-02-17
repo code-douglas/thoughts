@@ -136,6 +136,35 @@ form input[type='submit'],
   max-width: 20%;
 }
 
+/* TOught form */
+
+.tought-form-container h1 {
+  margin: 1em 0;
+  color: #fff;
+  border-left: 4px solid #f6982d;
+  padding: 0.3em;
+}
+
+.tought-form-container a {
+  color: #f6982d;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.tought-form-container form {
+  max-width: 30%;
+  margin-top: 1.5em;
+}
+
+.title-container h2{
+  margin: 1em 0;
+}
+
+.dashboard h3 {
+  margin-top: 1em;
+}
+
 /* Footer */
 footer{
   height: 130px;
