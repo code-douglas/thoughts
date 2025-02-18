@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get('/add', checkUserAuth, ToughtsController.createTought);
 router.post('/add', checkUserAuth, ToughtsController.createToughtSave);
+router.get('/edit/:id', checkUserAuth, ToughtsController.editTought);
+router.post('/edit/', checkUserAuth, ToughtsController.editToughtSave);
 router.get('/dashboard', checkUserAuth, ToughtsController.dashboard);
 router.post('/remove', checkUserAuth, ToughtsController.removeTought);
 router.get('/', ToughtsController.showToughts);
