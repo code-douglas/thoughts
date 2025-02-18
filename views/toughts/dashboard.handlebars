@@ -3,14 +3,18 @@
     <h2>dashboard</h2>
     <a href="/toughts/add" class="btn">Criar pensamento</a>
   </div>
-  <h3>Seus pensamentos</h3>
+  {{#if toughts.length}}
+    <h3>Seus pensamentos</h3>
+  {{else}}
+    <h3>Você ainda não adicionou pensamentos. <a href="/toughts/add">Adicione aqui!</a></h3>
+  {{/if}}
   <ul>
     {{#each toughts}}
       <li>
         <span class="label">{{this.title}}</span>
         <span class="action">
           <a href="/" class="btn">Editar</a>
-          <form action="/" method="POST">
+          <form action="/toughts/remove" method="POST">
             <input type="hidden" name="id" value="{{this.id}}">
             <input type="submit" value="Excluir" class="btn">
           </form>
