@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import User from '../models/User.mjs';
 class AuthController {
 
-  static async login(req, res) {
+  static login(req, res) {
     res.render('auth/login');
   }
 
@@ -41,7 +41,7 @@ class AuthController {
     res.redirect('/login');
   }
 
-  static async register(req, res) {
+  static register(req, res) {
     res.render('auth/register');
   }
 

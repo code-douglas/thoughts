@@ -1,7 +1,8 @@
 import express from 'express';
-const router = express.Router();
 import ToughtsController from '../controllers/ToughtsController.mjs';
 import checkUserAuth from '../middlewares/checkUserAuth.mjs';
+
+const router = express.Router();
 
 router.get('/add', checkUserAuth, ToughtsController.createTought);
 router.post('/add', checkUserAuth, ToughtsController.createToughtSave);

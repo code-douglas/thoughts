@@ -1,12 +1,13 @@
 import Tought from '../models/Tought.mjs';
 import User from '../models/User.mjs';
 
-export default class ToughtsController {
-  static async showToughts(req, res) {
+class ToughtsController {
+
+  static showToughts(req, res) {
     res.render('toughts/home');
   }
-  static async dashboard(req, res) {
 
+  static async dashboard(req, res) {
     const userId = req.session.userId;
 
     const user = await User.findOne({
@@ -22,9 +23,7 @@ export default class ToughtsController {
       });
       return;
     }
-
     const toughts = user.Toughts.map((result) => result.dataValues);
-
     res.render('toughts/dashboard', { toughts });
   }
 
@@ -51,3 +50,5 @@ export default class ToughtsController {
 
   }
 }
+
+export default ToughtsController;
