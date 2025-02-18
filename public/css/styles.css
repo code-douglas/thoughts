@@ -136,7 +136,7 @@ form input[type='submit'],
   max-width: 20%;
 }
 
-/* TOught form */
+/* Tought form */
 
 .tought-form-container h1 {
   margin: 1em 0;
@@ -157,12 +157,47 @@ form input[type='submit'],
   margin-top: 1.5em;
 }
 
-.title-container h2{
-  margin: 1em 0;
+/* Dashboard */
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+
+.title-container h2 {
+  border-left: 4px solid #f6982d;
+  padding: 10px;
 }
 
 .dashboard h3 {
-  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
+.dashboard ul {
+  list-style: none;
+}
+
+.dashboard ul li {
+  padding: 12px;
+  border-bottom: 1px solid #f6982d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard .label {
+  font-weight: bold;
+  color: #f6982d;
+}
+
+.dashboard .action {
+  display: flex;
+}
+
+.dashboard .action .btn {
+  color: #fff;
+  border-color: #fff;
+  margin: 0 .5em;
 }
 
 /* Footer */
