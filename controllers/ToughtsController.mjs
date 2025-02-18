@@ -13,4 +13,22 @@ export default class ToughtsController {
     res.render('toughts/create');
   }
 
+  static async createToughtSave (req, res) {
+
+    const tought = {
+      title: req.body.title,
+      UserId: req.session.userId,
+    };
+
+    try {
+      await Tought.create(tought);
+      req.flash('success', 'Pensamento criado com sucesso!');
+      req.session.save(() => {
+        res.redirect('/toughts/dashboard');
+      });
+    } catch(error) {
+      console.log(error);
+    }
+
+  }
 }
