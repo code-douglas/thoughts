@@ -49,6 +49,22 @@ class ToughtsController {
     }
 
   }
+
+  static async removeTought(req, res) {
+    const id = req.body.id;
+    const UserId = req.session.userId;
+
+    try {
+      await Tought.destroy({ where: { id: id, UserId: UserId  } });
+      req.flash('success', 'Pensamento excluido com sucesso!');
+      req.session.save(() => {
+        res.redirect('/toughts/dashboard');
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 }
 
 export default ToughtsController;
