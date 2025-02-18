@@ -6,7 +6,26 @@ export default class ToughtsController {
     res.render('toughts/home');
   }
   static async dashboard(req, res) {
-    res.render('toughts/dashboard');
+
+    const userId = req.session.userId;
+
+    const user = await User.findOne({
+      where: { id: userId },
+      include: Tought,
+      plain: true,
+    });
+
+    if(!user) {
+      req.flash('error', 'Você precisa está logado!');
+      req.session.save(() => {
+        res.redirect('/toughts/dashboard');
+      });
+      return;
+    }
+
+    const toughts = user.Toughts.map((result) => result.dataValues);
+
+    res.render('toughts/dashboard', { toughts });
   }
 
   static createTought (req, res) {
