@@ -63,7 +63,32 @@ class ToughtsController {
     } catch (error) {
       console.log(error);
     }
+  }
 
+  static async editTought(req, res) {
+    const id = req.params.id;
+    const tought = await Tought.findOne({ where: { id: id }, raw: true });
+
+    res.render('toughts/edit', { tought });
+  }
+
+  static async editToughtSave(req, res) {
+    const { id, title } = req.body;
+
+    const tought = {
+      id: id,
+      title: title,
+    };
+
+    try {
+      await Tought.update(tought, { where: { id: id } });
+      req.flash('success', 'Pensamento editado com sucesso!');
+      req.session.save(() => {
+        res.redirect('/toughts/dashboard');
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
