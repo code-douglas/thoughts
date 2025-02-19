@@ -3,8 +3,21 @@ import User from '../models/User.mjs';
 
 class ToughtsController {
 
-  static showToughts(req, res) {
-    res.render('toughts/home');
+  static async showToughts(req, res) {
+    try {
+      const toughtsData = await Tought.findAll({
+        include: User,
+      });
+
+      const toughts = toughtsData.map(
+        (result) => result.get(
+          { plain: true }
+        )
+      );
+      res.render('toughts/home', { toughts });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static async dashboard(req, res) {
