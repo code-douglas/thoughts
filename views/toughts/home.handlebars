@@ -1,1 +1,15 @@
-<h1>Todos os pensamentos</h1>
+<header class="home-header">
+  <h1>Todos os Pensamentos</h1>
+</header>
+<section class="toughts-container">
+  {{#each toughts}}
+    <figure>
+      <blockquote>
+        "{{this.title}}"
+      </blockquote>
+      <figcaption>
+        Por <span>{{this.User.name}}</span>
+      </figcaption>
+    </figure>
+  {{/each}}
+</section>
